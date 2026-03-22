@@ -15,49 +15,45 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* CONTENEDOR */
-.container {
-    text-align: center;
-    position: relative;
-}
-
 /* TEXTO */
 h1 {
-    margin-bottom: 40px;
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    text-align: center;
     color: #4e342e;
 }
 
 /* RAMO */
 .bouquet {
     position: relative;
-    width: 220px;
-    height: 320px;
-    margin: auto;
+    width: 250px;
+    height: 350px;
 }
 
 /* TALLOS */
 .stem {
     position: absolute;
-    width: 5px;
-    height: 140px;
+    width: 4px;
+    height: 150px;
     background: #2e7d32;
     bottom: 0;
     left: 50%;
     transform-origin: bottom;
 }
 
-/* POSICIÓN TALLOS */
-.s1 { transform: rotate(-15deg); }
-.s2 { transform: rotate(-30deg); }
-.s3 { transform: rotate(15deg); }
-.s4 { transform: rotate(30deg); }
-.s5 { transform: rotate(5deg); }
+/* POSICIONES TALLOS */
+.s1 { transform: rotate(-25deg); }
+.s2 { transform: rotate(-10deg); }
+.s3 { transform: rotate(10deg); }
+.s4 { transform: rotate(25deg); }
+.s5 { transform: rotate(0deg); }
 
 /* FLOR */
 .flower {
     position: absolute;
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
 }
 
 /* CENTRO */
@@ -65,37 +61,37 @@ h1 {
     position: absolute;
     width: 10px;
     height: 10px;
-    background: #ff8f00;
+    background: orange;
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-/* PÉTALOS DE LIRIO */
+/* PÉTALOS LIRIO */
 .petal {
     position: absolute;
-    width: 18px;
-    height: 50px;
+    width: 20px;
+    height: 60px;
     background: radial-gradient(circle at 50% 20%, #fffde7, #fdd835);
     border-radius: 50% 50% 0 0;
     transform-origin: bottom center;
 }
 
-/* ROTACIÓN LIRIO */
-.petal:nth-child(1) { transform: rotate(0deg); }
-.petal:nth-child(2) { transform: rotate(60deg); }
-.petal:nth-child(3) { transform: rotate(120deg); }
-.petal:nth-child(4) { transform: rotate(180deg); }
-.petal:nth-child(5) { transform: rotate(240deg); }
-.petal:nth-child(6) { transform: rotate(300deg); }
+/* 6 pétalos */
+.petal:nth-child(1){ transform: rotate(0deg); }
+.petal:nth-child(2){ transform: rotate(60deg); }
+.petal:nth-child(3){ transform: rotate(120deg); }
+.petal:nth-child(4){ transform: rotate(180deg); }
+.petal:nth-child(5){ transform: rotate(240deg); }
+.petal:nth-child(6){ transform: rotate(300deg); }
 
-/* POSICIÓN FLORES */
-.f1 { top: 0; left: 80px; }
-.f2 { top: 50px; left: 20px; }
-.f3 { top: 50px; left: 140px; }
-.f4 { top: 110px; left: 60px; }
-.f5 { top: 110px; left: 110px; }
+/* POSICIÓN DE FLORES */
+.f1 { top: 0; left: 85px; }
+.f2 { top: 60px; left: 10px; }
+.f3 { top: 60px; left: 160px; }
+.f4 { top: 130px; left: 50px; }
+.f5 { top: 130px; left: 120px; }
 
 /* ENVOLTURA */
 .wrap {
@@ -103,59 +99,56 @@ h1 {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 200px;
-    height: 140px;
+    width: 220px;
+    height: 150px;
     background: #ffe0b2;
     clip-path: polygon(0 0, 100% 0, 50% 100%);
-    opacity: 0.95;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>no quiero que te quedes sin nada<br>te amo mucho 💛</h1>
+<h1>no quiero que te quedes sin nada<br>te amo mucho 💛</h1>
 
-    <div class="bouquet">
+<div class="bouquet">
 
-        <!-- TALLOS -->
-        <div class="stem s1"></div>
-        <div class="stem s2"></div>
-        <div class="stem s3"></div>
-        <div class="stem s4"></div>
-        <div class="stem s5"></div>
+    <!-- TALLOS -->
+    <div class="stem s1"></div>
+    <div class="stem s2"></div>
+    <div class="stem s3"></div>
+    <div class="stem s4"></div>
+    <div class="stem s5"></div>
 
-        <!-- FLORES -->
-        <div class="flower f1" id="f1"></div>
-        <div class="flower f2" id="f2"></div>
-        <div class="flower f3" id="f3"></div>
-        <div class="flower f4" id="f4"></div>
-        <div class="flower f5" id="f5"></div>
+    <!-- FLORES -->
+    <div class="flower f1" id="f1"></div>
+    <div class="flower f2" id="f2"></div>
+    <div class="flower f3" id="f3"></div>
+    <div class="flower f4" id="f4"></div>
+    <div class="flower f5" id="f5"></div>
 
-        <!-- ENVOLTURA -->
-        <div class="wrap"></div>
+    <!-- ENVOLTURA -->
+    <div class="wrap"></div>
 
-    </div>
 </div>
 
 <script>
-function createLily(id){
-    const flower = document.getElementById(id);
+function crearLirio(id){
+    let flor = document.getElementById(id);
 
     for(let i=0;i<6;i++){
-        let petal = document.createElement("div");
-        petal.className="petal";
-        flower.appendChild(petal);
+        let petalo = document.createElement("div");
+        petalo.className="petal";
+        flor.appendChild(petalo);
     }
 
-    let center = document.createElement("div");
-    center.className="center";
-    flower.appendChild(center);
+    let centro = document.createElement("div");
+    centro.className="center";
+    flor.appendChild(centro);
 }
 
-["f1","f2","f3","f4","f5"].forEach(createLily);
+["f1","f2","f3","f4","f5"].forEach(crearLirio);
 </script>
 
 </body>
-</html> 
+</html>
