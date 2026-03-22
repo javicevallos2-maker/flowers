@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Para ti 💛</title> 
+<title>Para ti 💛</title>
 
 <style>
 body {
@@ -11,159 +11,50 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+    background: linear-gradient(to bottom, #0f2027, #203a43);
     font-family: 'Segoe UI', sans-serif;
     overflow: hidden;
 }
 
-/* TEXTO */
 h1 {
     position: absolute;
     top: 8%;
     width: 100%;
     text-align: center;
-    color: #ffffff;
+    color: white;
     font-size: 2.3em;
-    text-shadow: 0 0 15px rgba(255,255,255,0.4);
 }
 
 /* RAMO */
 .bouquet {
-    position: relative;
-    width: 260px;
-    height: 360px;
-    animation: floatBouquet 4s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
 }
 
-/* MOVIMIENTO */
-@keyframes floatBouquet {
-    0%,100% { transform: translateY(0px); }
+@keyframes float {
+    0%,100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
 
 /* TALLOS */
 .stem {
-    position: absolute;
-    width: 5px;
-    height: 160px;
-    background: #00e676;
-    bottom: 0;
-    left: 50%;
-    transform-origin: bottom;
+    stroke: #00e676;
+    stroke-width: 4;
 }
 
-.s1 { transform: rotate(-25deg); }
-.s2 { transform: rotate(-10deg); }
-.s3 { transform: rotate(0deg); }
-.s4 { transform: rotate(10deg); }
-.s5 { transform: rotate(25deg); }
-
-/* FLOR */
-.flower {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-}
-
-/* CENTRO */
-.center {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: #ff9100;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* 🌸 PÉTALOS REALISTAS */
-.petal {
-    position: absolute;
-    width: 18px;
-    height: 65px;
-    background: linear-gradient(to top, #ffffff, #f5f5f5);
-    border-radius: 50% 50% 20% 20%;
-    transform-origin: bottom center;
-}
-
-/* POSICIÓN IRREGULAR (más natural) */
-.petal:nth-child(1) { transform: rotate(-20deg) translateY(-5px); }
-.petal:nth-child(2) { transform: rotate(20deg) translateY(-5px); }
-.petal:nth-child(3) { transform: rotate(70deg); }
-.petal:nth-child(4) { transform: rotate(110deg); }
-.petal:nth-child(5) { transform: rotate(160deg); }
-.petal:nth-child(6) { transform: rotate(200deg); }
-
-/* 🌿 ESTAMBRES */
-.stamen {
-    position: absolute;
-    width: 2px;
-    height: 25px;
-    background: #ff9100;
-    top: 30%;
-    left: 50%;
-    transform-origin: bottom;
-}
-
-.stamen::after {
-    content: "";
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: #ff6f00;
-    border-radius: 50%;
-    top: -5px;
-    left: -2px;
-}
-
-/* POSICIÓN FLORES */
-.f1 { top: 0; left: 90px; }
-.f2 { top: 60px; left: 10px; }
-.f3 { top: 60px; left: 170px; }
-.f4 { top: 130px; left: 60px; }
-.f5 { top: 130px; left: 130px; }
-
-/* ENVOLTURA */
-.wrap {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 220px;
-    height: 160px;
-    background: linear-gradient(to top, #ff8a65, #ffccbc);
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
-}
-
-/* SOMBRA */
-.shadow {
-    position: absolute;
-    bottom: -10px;
-    width: 200px;
-    height: 20px;
-    background: rgba(0,0,0,0.6);
-    border-radius: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* ✨ BRILLOS */
+/* BRILLOS */
 .sparkle {
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     background: white;
     border-radius: 50%;
-    opacity: 0;
-    animation: sparkleAnim 3s infinite;
+    animation: sparkle 3s infinite;
 }
 
-@keyframes sparkleAnim {
-    0% { transform: translateY(0); opacity: 0; }
-    50% { opacity: 1; }
-    100% { transform: translateY(-40px); opacity: 0; }
+@keyframes sparkle {
+    0% { opacity: 0; transform: translateY(0);}
+    50% { opacity: 1;}
+    100% { opacity: 0; transform: translateY(-40px);}
 }
 </style>
 </head>
@@ -172,69 +63,52 @@ h1 {
 
 <h1>no quiero que te quedes sin nada<br>te amo mucho 💛</h1>
 
-<div class="bouquet">
+<svg class="bouquet" width="300" height="400" viewBox="0 0 300 400">
 
     <!-- TALLOS -->
-    <div class="stem s1"></div>
-    <div class="stem s2"></div>
-    <div class="stem s3"></div>
-    <div class="stem s4"></div>
-    <div class="stem s5"></div>
+    <line x1="150" y1="350" x2="100" y2="200" class="stem"/>
+    <line x1="150" y1="350" x2="200" y2="200" class="stem"/>
+    <line x1="150" y1="350" x2="150" y2="180" class="stem"/>
 
-    <!-- FLORES -->
-    <div class="flower f1" id="f1"></div>
-    <div class="flower f2" id="f2"></div>
-    <div class="flower f3" id="f3"></div>
-    <div class="flower f4" id="f4"></div>
-    <div class="flower f5" id="f5"></div>
+    <!-- 🌸 LIRIO 1 -->
+    <g transform="translate(100,200)">
+        <path d="M0,0 C20,-40 40,-40 60,0 C40,-20 20,-20 0,0" fill="white"/>
+        <path d="M0,0 C-30,-30 -30,-10 0,20 C-10,0 -10,-10 0,0" fill="white"/>
+        <path d="M60,0 C90,-30 90,-10 60,20 C70,0 70,-10 60,0" fill="white"/>
+        <circle cx="30" cy="0" r="5" fill="orange"/>
+    </g>
+
+    <!-- 🌸 LIRIO 2 -->
+    <g transform="translate(200,200)">
+        <path d="M0,0 C20,-40 40,-40 60,0 C40,-20 20,-20 0,0" fill="white"/>
+        <path d="M0,0 C-30,-30 -30,-10 0,20 C-10,0 -10,-10 0,0" fill="white"/>
+        <path d="M60,0 C90,-30 90,-10 60,20 C70,0 70,-10 60,0" fill="white"/>
+        <circle cx="30" cy="0" r="5" fill="orange"/>
+    </g>
+
+    <!-- 🌸 LIRIO 3 -->
+    <g transform="translate(150,150)">
+        <path d="M0,0 C20,-50 40,-50 60,0 C40,-25 20,-25 0,0" fill="white"/>
+        <path d="M0,0 C-30,-30 -30,-10 0,20" fill="white"/>
+        <path d="M60,0 C90,-30 90,-10 60,20" fill="white"/>
+        <circle cx="30" cy="0" r="5" fill="orange"/>
+    </g>
 
     <!-- ENVOLTURA -->
-    <div class="wrap"></div>
-    <div class="shadow"></div>
+    <polygon points="80,250 220,250 150,380" fill="#ffab91"/>
 
-</div>
+</svg>
 
 <script>
-// 🌸 crear lirios
-function createLily(id){
-    const f = document.getElementById(id);
-
-    for(let i=0;i<6;i++){
-        let p = document.createElement("div");
-        p.className="petal";
-        f.appendChild(p);
-    }
-
-    let c = document.createElement("div");
-    c.className="center";
-    f.appendChild(c);
-
-    // estambres
-    for(let i=0;i<3;i++){
-        let s = document.createElement("div");
-        s.className="stamen";
-        s.style.transform = `rotate(${i*30 - 30}deg)`;
-        f.appendChild(s);
-    }
-}
-
-["f1","f2","f3","f4","f5"].forEach(createLily);
-
-// ✨ brillos
-function createSparkle(){
-    const s = document.createElement("div");
-    s.className = "sparkle";
-
-    s.style.left = Math.random()*100 + "vw";
-    s.style.top = (60 + Math.random()*30) + "vh";
-    s.style.animationDuration = (2 + Math.random()*2) + "s";
-
+function sparkle(){
+    const s=document.createElement("div");
+    s.className="sparkle";
+    s.style.left=Math.random()*100+"vw";
+    s.style.top=(60+Math.random()*30)+"vh";
     document.body.appendChild(s);
-
     setTimeout(()=>s.remove(),3000);
 }
-
-setInterval(createSparkle, 300);
+setInterval(sparkle,300);
 </script>
 
 </body>
