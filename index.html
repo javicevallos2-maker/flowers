@@ -1,11 +1,11 @@
 <style>
 body {
-    margin: 0; 
+    margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, #fff8e1, #ffe082);
+    background: linear-gradient(to bottom, #1a1a2e, #16213e);
     font-family: 'Segoe UI', sans-serif;
 }
 
@@ -15,8 +15,9 @@ h1 {
     top: 10%;
     width: 100%;
     text-align: center;
-    color: #3e2723;
-    font-size: 2.2em;
+    color: #ffffff;
+    font-size: 2.3em;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
 }
 
 /* RAMO */
@@ -31,7 +32,7 @@ h1 {
     position: absolute;
     width: 5px;
     height: 160px;
-    background: #1b5e20;
+    background: #00c853;
     bottom: 0;
     left: 50%;
     transform-origin: bottom;
@@ -55,22 +56,22 @@ h1 {
     position: absolute;
     width: 14px;
     height: 14px;
-    background: #d84315;
+    background: #ff9100;
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-/* 🔥 PÉTALOS (BLANCOS CON BORDE) */
+/* 🌸 PÉTALOS BLANCOS (ahora resaltan) */
 .petal {
     position: absolute;
     width: 22px;
     height: 60px;
-    background: white;
-    border: 2px solid #fbc02d;
+    background: #ffffff;
     border-radius: 50% 50% 0 0;
     transform-origin: bottom center;
+    box-shadow: 0 0 12px rgba(255,255,255,0.8);
 }
 
 /* FORMA LIRIO */
@@ -96,8 +97,9 @@ h1 {
     transform: translateX(-50%);
     width: 220px;
     height: 160px;
-    background: linear-gradient(to top, #ffab91, #ffe0b2);
+    background: linear-gradient(to top, #ff8a65, #ffccbc);
     clip-path: polygon(0 0, 100% 0, 50% 100%);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
 }
 
 /* SOMBRA */
@@ -106,9 +108,9 @@ h1 {
     bottom: -10px;
     width: 200px;
     height: 20px;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.5);
     border-radius: 50%;
     left: 50%;
     transform: translateX(-50%);
 }
-</style> 
+</style>
