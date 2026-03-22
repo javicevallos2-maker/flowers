@@ -1,23 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para ti 💛</title>
+
 <style>
 body {
     margin: 0;
-    height: 100vh; 
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, #1a1a2e, #16213e);
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
     font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
 }
 
 /* TEXTO */
 h1 {
     position: absolute;
-    top: 10%;
+    top: 8%;
     width: 100%;
     text-align: center;
     color: #ffffff;
     font-size: 2.3em;
-    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    text-shadow: 0 0 15px rgba(255,255,255,0.4);
 }
 
 /* RAMO */
@@ -25,6 +32,13 @@ h1 {
     position: relative;
     width: 260px;
     height: 360px;
+    animation: floatBouquet 4s ease-in-out infinite;
+}
+
+/* ANIMACIÓN SUAVE */
+@keyframes floatBouquet {
+    0%,100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
 }
 
 /* TALLOS */
@@ -32,7 +46,7 @@ h1 {
     position: absolute;
     width: 5px;
     height: 160px;
-    background: #00c853;
+    background: #00e676;
     bottom: 0;
     left: 50%;
     transform-origin: bottom;
@@ -63,7 +77,7 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
-/* 🌸 PÉTALOS BLANCOS (ahora resaltan) */
+/* PÉTALOS */
 .petal {
     position: absolute;
     width: 22px;
@@ -71,10 +85,10 @@ h1 {
     background: #ffffff;
     border-radius: 50% 50% 0 0;
     transform-origin: bottom center;
-    box-shadow: 0 0 12px rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(255,255,255,0.9);
 }
 
-/* FORMA LIRIO */
+/* FORMA */
 .petal:nth-child(1) { transform: rotate(0deg); }
 .petal:nth-child(2) { transform: rotate(60deg); }
 .petal:nth-child(3) { transform: rotate(120deg); }
@@ -99,7 +113,7 @@ h1 {
     height: 160px;
     background: linear-gradient(to top, #ff8a65, #ffccbc);
     clip-path: polygon(0 0, 100% 0, 50% 100%);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
 }
 
 /* SOMBRA */
@@ -108,9 +122,88 @@ h1 {
     bottom: -10px;
     width: 200px;
     height: 20px;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
     border-radius: 50%;
     left: 50%;
     transform: translateX(-50%);
 }
+
+/* ✨ BRILLOS */
+.sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkleAnim 3s infinite;
+}
+
+@keyframes sparkleAnim {
+    0% { transform: translateY(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-40px); opacity: 0; }
+}
 </style>
+</head>
+
+<body>
+
+<h1>no quiero que te quedes sin nada<br>te amo mucho 💛</h1>
+
+<div class="bouquet">
+
+    <div class="stem s1"></div>
+    <div class="stem s2"></div>
+    <div class="stem s3"></div>
+    <div class="stem s4"></div>
+    <div class="stem s5"></div>
+
+    <div class="flower f1" id="f1"></div>
+    <div class="flower f2" id="f2"></div>
+    <div class="flower f3" id="f3"></div>
+    <div class="flower f4" id="f4"></div>
+    <div class="flower f5" id="f5"></div>
+
+    <div class="wrap"></div>
+    <div class="shadow"></div>
+
+</div>
+
+<script>
+// crear lirios
+function createLily(id){
+    const f = document.getElementById(id);
+
+    for(let i=0;i<6;i++){
+        let p = document.createElement("div");
+        p.className="petal";
+        f.appendChild(p);
+    }
+
+    let c = document.createElement("div");
+    c.className="center";
+    f.appendChild(c);
+}
+
+["f1","f2","f3","f4","f5"].forEach(createLily);
+
+// ✨ generar brillos
+function createSparkle(){
+    const s = document.createElement("div");
+    s.className = "sparkle";
+
+    s.style.left = Math.random()*100 + "vw";
+    s.style.top = (60 + Math.random()*30) + "vh";
+    s.style.animationDuration = (2 + Math.random()*2) + "s";
+
+    document.body.appendChild(s);
+
+    setTimeout(()=>s.remove(),3000);
+}
+
+setInterval(createSparkle, 300);
+</script>
+
+</body>
+</html>
