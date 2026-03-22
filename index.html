@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para ti 💛</title>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #fffde7, #ffe082);
+    font-family: Arial, sans-serif;
+}
+
+/* TEXTO */
+h1 {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+    font-size: 2.3em;
+    color: #4e342e;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+/* FLOR */
+.flower {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    animation: float linear infinite;
+}
+
+/* CENTRO */
+.center {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #5d4037;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* PÉTALOS */
+.petal {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    background: radial-gradient(circle at 50% 20%, #fff176, #fbc02d);
+    border-radius: 50%;
+    top: 10px;
+    left: 20px;
+    transform-origin: center bottom;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg); }
+.petal:nth-child(2) { transform: rotate(45deg); }
+.petal:nth-child(3) { transform: rotate(90deg); }
+.petal:nth-child(4) { transform: rotate(135deg); }
+.petal:nth-child(5) { transform: rotate(180deg); }
+.petal:nth-child(6) { transform: rotate(225deg); }
+.petal:nth-child(7) { transform: rotate(270deg); }
+.petal:nth-child(8) { transform: rotate(315deg); }
+
+/* ANIMACIÓN */
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>no quiero que te quedes sin nada<br>te amo mucho 💛</h1>
+
+<script>
+function createFlower() {
+    const flower = document.createElement("div");
+    flower.className = "flower";
+
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.animationDuration = (6 + Math.random() * 6) + "s";
+
+    // pétalos
+    for (let i = 0; i < 8; i++) {
+        const petal = document.createElement("div");
+        petal.className = "petal";
+        flower.appendChild(petal);
+    }
+
+    // centro
+    const center = document.createElement("div");
+    center.className = "center";
+    flower.appendChild(center);
+
+    document.body.appendChild(flower);
+
+    setTimeout(() => flower.remove(), 12000);
+}
+
+setInterval(createFlower, 400);
+</script>
+
+</body>
+</html>
